@@ -6,12 +6,13 @@
 
 template<class T, int N>
 class Array {
+private:
     T *array;
 public:
     Array();
+    ~Array();
     T &operator[](int index);
     const T &operator[](int index) const;
-    ~Array();
 };
 
 #include "Array.tpp"
