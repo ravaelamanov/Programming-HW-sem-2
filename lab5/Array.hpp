@@ -1,5 +1,6 @@
 #ifndef LAB5_ARRAY_HPP
 #define LAB5_ARRAY_HPP
+
 #include "ArrayException.h"
 
 
@@ -9,6 +10,7 @@ class Array {
 public:
     Array();
     T &operator[](int index);
+    const T &operator[](int index) const;
     ~Array();
 };
 
