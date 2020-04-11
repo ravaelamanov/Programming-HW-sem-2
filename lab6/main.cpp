@@ -24,7 +24,7 @@ int main() {
         std::cout << "exists point in first quadrant\n";
     }
     Point find{2 , 2};
-    std::cout << "find_backward(2, 2): " <<find_backward(points.begin(), points.end(), find) << "\n";
+    std::cout << "find_backward(2, 2): " << find_backward(points.begin(), points.end(), find) << "\n";
     points.clear();
     points.emplace_back(1, 1); //in first quadrant
     points.emplace_back(1, 2); //in first quadrant
