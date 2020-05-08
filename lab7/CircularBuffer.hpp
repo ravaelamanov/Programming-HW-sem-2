@@ -3,7 +3,6 @@
 
 #include <iterator>
 #include <stdexcept>
-#include <algorithm>
 
 template<class T>
 class CircularBuffer {
