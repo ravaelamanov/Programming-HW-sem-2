@@ -79,10 +79,14 @@ public:
     }
 
     reference operator [] (size_type index) {
+        if (index >= capacity_ + 1)
+            throw std::out_of_range("Buffer overflow!\n");
         return data_[increment(head_, index)];
     }
 
     const_reference operator [] (size_type index) const {
+        if (index >= capacity_ + 1)
+            throw std::out_of_range("Buffer overflow!\n");
         return data_[increment(head_, index)];
     }
 
@@ -154,8 +158,8 @@ public:
     }
 
     iterator insert(const iterator& pos, T val) {
-/*        if (pos >= capacity_)
-            throw std::out_of_range("Buffer overflow!");*/
+        if (pos >= iterator(this, capacity_))
+            throw std::out_of_range("Buffer overflow!\n");
         auto it = pos;
         T temp = val;
         tail_ = increment(tail_, 1);
@@ -168,8 +172,8 @@ public:
     }
 
     void erase(iterator pos) {
-/*        if (empty())
-            throw std::out_of_range("Buffer underflow!");*/
+        if (empty())
+            throw std::out_of_range("Buffer underflow!\n");
         auto it = end() - 1;
         T temp = *it;
         for (; pos <= it; --it) {
@@ -203,3 +207,4 @@ private:
 #include "CircularBuffer.hpp"
 
 #endif //LAB7_CIRCULARBUFFER_HPP
+
