@@ -104,13 +104,6 @@ public:
         tail_ = new_size;
     }
 
-    void printData() {
-        for (int i = 0; i < capacity_ + 1; i++) {
-            std::cout << data_[i] << " ";
-        }
-        std::cout << "\n";
-    }
-
     class iterator : public std::iterator<std::random_access_iterator_tag, T> {
     private:
         size_type pos_;
@@ -134,7 +127,6 @@ public:
         iterator operator - (int val) const {return iterator(cbuf_, cbuf_->decrement(pos_, val));}
         iterator operator + (const iterator& other) const {return iterator(cbuf_, cbuf_->decrement(pos_, other.pos_));}
         difference_type operator - (const iterator& other) const {return cbuf_->decrement(pos_, other.pos_);}
-//        iterator operator / (size_type val) const {return iterator(cbuf_, cbuf_->increment(cbuf_->head_, pos_ / val));}
         bool operator == (const iterator& other) const {return pos_ == other.pos_;}
         bool operator != (const iterator& other) const {return !(*this == other);}
         bool operator < (const iterator& other) const {
