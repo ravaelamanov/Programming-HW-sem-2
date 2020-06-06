@@ -24,4 +24,6 @@ int Automat::size() const {
     return states_.size();
 }
 
-//RubiksCube &Automat::solveStep(RubiksCube &cube) {}
+State &Automat::operator[](int index) {
+    return states_[index];
+}

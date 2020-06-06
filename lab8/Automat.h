@@ -21,9 +21,7 @@ public:
     int getState() const;
     void setState(int state);
     int size() const;
-    State& operator [] (int index) {
-        return states_[index];
-    }
+    State& operator [] (int index);
     virtual const std::string& solveStep(RubiksCube& cube) = 0;
 };
 
